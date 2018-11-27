@@ -10,7 +10,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity security)throws Exception{
         security
                 .authorizeRequests()
-                .antMatchers("/","/hello","/login").permitAll()//设置不拦截路径
+                //设置不拦截路径
+                .antMatchers("/","/hello","/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
