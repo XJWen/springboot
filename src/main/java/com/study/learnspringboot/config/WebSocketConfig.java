@@ -10,6 +10,7 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
+    @Override
     public void registerStompEndpoints(StompEndpointRegistry registry){
         registry
                 .addEndpoint("/endpointWisely").withSockJS();
@@ -17,6 +18,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
                 .addEndpoint("/endpointChat").withSockJS();
     }
 
+    @Override
     public void configureMessageBroker(MessageBrokerRegistry registry){
         registry.enableSimpleBroker("/queue","/topic");
     }
